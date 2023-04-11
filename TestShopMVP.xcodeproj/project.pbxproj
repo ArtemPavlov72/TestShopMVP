@@ -8,18 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		AC30A10729DBFE3C007E0B12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A10629DBFE3C007E0B12 /* AppDelegate.swift */; };
-		AC30A10B29DBFE3C007E0B12 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A10A29DBFE3C007E0B12 /* ViewController.swift */; };
+		AC30A10B29DBFE3C007E0B12 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */; };
 		AC30A11029DBFE3E007E0B12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC30A10F29DBFE3E007E0B12 /* Assets.xcassets */; };
 		AC30A11329DBFE3E007E0B12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC30A11129DBFE3E007E0B12 /* LaunchScreen.storyboard */; };
+		AC30A11B29DC213E007E0B12 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A11A29DC213E007E0B12 /* NetworkManager.swift */; };
+		AC30A11F29DC2704007E0B12 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A11E29DC2704007E0B12 /* Shop.swift */; };
+		AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12129DC2A18007E0B12 /* DataManager.swift */; };
+		AC30A12429DC2B5D007E0B12 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12329DC2B5D007E0B12 /* BannerCell.swift */; };
+		AC30A12729DC2B99007E0B12 /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12629DC2B99007E0B12 /* SelfConfiguringCell.swift */; };
+		AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */; };
+		AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12B29DC2C0A007E0B12 /* ImageManager.swift */; };
+		AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12D29DC3073007E0B12 /* ProductCell.swift */; };
+		AC30A13029DD73B9007E0B12 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12F29DD73B9007E0B12 /* Header.swift */; };
+		AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13129DEDC45007E0B12 /* HeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC30A10329DBFE3C007E0B12 /* TestShopMVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestShopMVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC30A10629DBFE3C007E0B12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC30A10A29DBFE3C007E0B12 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AC30A10F29DBFE3E007E0B12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC30A11229DBFE3E007E0B12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC30A11429DBFE3E007E0B12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC30A11A29DC213E007E0B12 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AC30A11E29DC2704007E0B12 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		AC30A12129DC2A18007E0B12 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		AC30A12329DC2B5D007E0B12 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
+		AC30A12629DC2B99007E0B12 /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
+		AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		AC30A12B29DC2C0A007E0B12 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		AC30A12D29DC3073007E0B12 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		AC30A12F29DD73B9007E0B12 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		AC30A13129DEDC45007E0B12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +72,63 @@
 		AC30A10529DBFE3C007E0B12 /* TestShopMVP */ = {
 			isa = PBXGroup;
 			children = (
+				AC30A12029DC270C007E0B12 /* Models */,
 				AC30A10629DBFE3C007E0B12 /* AppDelegate.swift */,
-				AC30A10A29DBFE3C007E0B12 /* ViewController.swift */,
+				AC30A12529DC2B64007E0B12 /* Views */,
+				AC30A11D29DC220B007E0B12 /* ViewControllers */,
+				AC30A12A29DC2BC1007E0B12 /* Extensions */,
+				AC30A11C29DC2201007E0B12 /* Services */,
 				AC30A10F29DBFE3E007E0B12 /* Assets.xcassets */,
 				AC30A11129DBFE3E007E0B12 /* LaunchScreen.storyboard */,
 				AC30A11429DBFE3E007E0B12 /* Info.plist */,
 			);
 			path = TestShopMVP;
+			sourceTree = "<group>";
+		};
+		AC30A11C29DC2201007E0B12 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A11A29DC213E007E0B12 /* NetworkManager.swift */,
+				AC30A12129DC2A18007E0B12 /* DataManager.swift */,
+				AC30A12B29DC2C0A007E0B12 /* ImageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC30A11D29DC220B007E0B12 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AC30A12029DC270C007E0B12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A11E29DC2704007E0B12 /* Shop.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC30A12529DC2B64007E0B12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A12F29DD73B9007E0B12 /* Header.swift */,
+				AC30A12329DC2B5D007E0B12 /* BannerCell.swift */,
+				AC30A13129DEDC45007E0B12 /* HeaderCell.swift */,
+				AC30A12D29DC3073007E0B12 /* ProductCell.swift */,
+				AC30A12629DC2B99007E0B12 /* SelfConfiguringCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC30A12A29DC2BC1007E0B12 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +201,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC30A10B29DBFE3C007E0B12 /* ViewController.swift in Sources */,
+				AC30A12729DC2B99007E0B12 /* SelfConfiguringCell.swift in Sources */,
+				AC30A11B29DC213E007E0B12 /* NetworkManager.swift in Sources */,
+				AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */,
+				AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */,
+				AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */,
+				AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */,
+				AC30A13029DD73B9007E0B12 /* Header.swift in Sources */,
+				AC30A10B29DBFE3C007E0B12 /* MainViewController.swift in Sources */,
 				AC30A10729DBFE3C007E0B12 /* AppDelegate.swift in Sources */,
+				AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */,
+				AC30A11F29DC2704007E0B12 /* Shop.swift in Sources */,
+				AC30A12429DC2B5D007E0B12 /* BannerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
