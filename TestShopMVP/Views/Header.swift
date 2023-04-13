@@ -12,6 +12,8 @@ class Header: UICollectionReusableView {
     static let reuseId: String = "headerSectionId"
     
     var categories: [String] = []
+    var delegate: MainViewControllerDelegate?
+    
     private var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
@@ -29,6 +31,7 @@ class Header: UICollectionReusableView {
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(collectionView)
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: HeaderCell.reuseId)
     }
     
@@ -73,3 +76,10 @@ extension Header: UICollectionViewDataSource {
         return cell
     }
 }
+
+extension Header: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      delegate?.didSelectCategory(indexPath.item)
+     }
+}
+

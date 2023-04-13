@@ -7,16 +7,20 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate {
+    func didSelectCategory(_ index: Int)
+}
+
 class MainViewController: UIViewController {
 
     //MARK: - Private Properties
     private var banners: [Banner] = []
     private var products: [Product] = []
-    private var categories: [String] = []
+    private var filteredProducts: [Product] = []
     
-    private var cars: [Product] = []
-    private var games: [Product] = []
     private var phones: [Product] = []
+    private var games: [Product] = []
+    private var cars: [Product] = []
     private var kids: [Product] = []
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
@@ -26,72 +30,41 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        fetchProducts {
+        getProducts {
             self.getData()
             self.createDataSource()
-            
         }
     }
     
     //MARK: - Private Methods
-    func fetchProducts(completion: @escaping () -> Void) {
-        let urls = Link.allCases
-        let group = DispatchGroup()
-        
-        _ = urls.map { url in
-            group.enter()
-            
-            switch url {
-            case .latest:
-                NetworkManager.shared.fetchData(dataType: Latest.self, from: url.rawValue) { result in
-                    switch result {
-                    case.success(let product):
-                        product.latest.map { dataProduct in
-                            let newProduct = Product(
-                                category: dataProduct.category,
-                                name: dataProduct.name,
-                                price: dataProduct.price,
-                                image: dataProduct.image_url
-                            )
-                            self.products.append(newProduct)
-                        }
-                        group.leave()
-                    case.failure(let error):
-                        print(error)
-                        group.leave()
-                    }
-                }
-            case .sale:
-                NetworkManager.shared.fetchData(dataType: Sale.self, from: url.rawValue) { result in
-                    switch result {
-                    case.success(let product):
-                        product.flash_sale.map { dataProduct in
-                            let newProduct = Product(
-                                category: dataProduct.category,
-                                name: dataProduct.name,
-                                price: dataProduct.price,
-                                image: dataProduct.image_url
-                            )
-                            self.products.append(newProduct)
-                           
-                        }
-                        group.leave()
-                    case.failure(let error):
-                        print(error)
-                        group.leave()
-                    }
-                }
-            }
-        }
-        group.notify(queue: .main) {
+    func getProducts(completion: @escaping () -> Void) {
+        DataManager.shared.createTestProducts(completion: { products in
+            self.products = products
             completion()
-        }
+        })
     }
-    
+        
     private func getData() {
         banners = DataManager.shared.createBanners()
+  
+        phones = products.filter({ product in
+            product.category == "Phones"
+        })
+        games = products.filter({ product in
+            product.category == "Games"
+        })
+        cars = products.filter({ product in
+            product.category == "Cars"
+        })
+        kids = products.filter({ product in
+            product.category == "Kids"
+        })
         
-        categories = Array(NSOrderedSet(array: products.compactMap({ $0.category } ))) as? [String] ?? []
+        filteredProducts.append(contentsOf: phones)
+        filteredProducts.append(contentsOf: games)
+        filteredProducts.append(contentsOf: cars)
+        filteredProducts.append(contentsOf: kids)
+        
     }
     
     private func setupCollectionView() {
@@ -129,11 +102,11 @@ class MainViewController: UIViewController {
         
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Header.reuseId, for: indexPath) as? Header else { return Header() }
-//            guard let item = self.dataSource?.itemIdentifier(for: indexPath) else { return Header() }
-//            guard let section = self.dataSource?.snapshot().sectionIdentifier(containingItem: item) else { return Header() }
+            
+            sectionHeader.categories = Array(NSOrderedSet(array: self.filteredProducts.compactMap({ $0.category } ))) as? [String] ?? []
 
-            sectionHeader.categories = self.categories
-
+            sectionHeader.delegate = self
+            
             return sectionHeader
         }
         
@@ -149,7 +122,7 @@ class MainViewController: UIViewController {
         snapshot.appendItems(banners, toSection: .banner)
         
         snapshot.appendSections([Section.productInfo])
-        snapshot.appendItems(products, toSection: .productInfo)
+        snapshot.appendItems(filteredProducts, toSection: .productInfo)
 
         return snapshot
     }
@@ -166,9 +139,7 @@ class MainViewController: UIViewController {
                 return self.createProductSection()
             }
         }
-        
-  //      layout.register(RoundedBackgroundView.self, forDecorationViewOfKind: RoundedBackgroundView.reuseId)
-        
+                
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 16
         layout.configuration = config
@@ -188,9 +159,6 @@ class MainViewController: UIViewController {
         let layoutSection = NSCollectionLayoutSection(group: group)
         layoutSection.orthogonalScrollingBehavior = .continuous
         layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 0)
-       // layoutSection.decorationItems = [
-       //     NSCollectionLayoutDecorationItem.background(elementKind: RoundedBackgroundView.reuseId)
-      //  ]
         return layoutSection
     }
     
@@ -198,8 +166,7 @@ class MainViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                               heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-       // item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 4, bottom: 0, trailing: 0)
-        
+
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .absolute(160))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
@@ -208,14 +175,11 @@ class MainViewController: UIViewController {
         layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 4, bottom: 0, trailing: 8)
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
-        //
+        
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
-       // let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .bottom)
+     
         header.pinToVisibleBounds = true //
         layoutSection.boundarySupplementaryItems = [header]
-//        layoutSection.decorationItems = [
-//            NSCollectionLayoutDecorationItem.background(elementKind: RoundedBackgroundView.reuseId)
-//        ]
         
         return layoutSection
     }
@@ -226,5 +190,27 @@ extension MainViewController {
         case banner
         case productInfo
     }
+}
+
+//MARK: - MainViewControllerDelegate
+
+extension MainViewController: MainViewControllerDelegate {
+  func didSelectCategory(_ index: Int) {
+      var correctIndex = 0
+      
+      switch index {
+      case 0:
+          correctIndex = 0
+      case 1:
+          correctIndex = phones.count
+      case 2:
+          correctIndex = phones.count + games.count
+      default:
+          correctIndex = phones.count + games.count + cars.count
+      }
+      
+      let indexPath = IndexPath(item: correctIndex, section: 1)
+    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+  }
 }
 

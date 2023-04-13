@@ -8,6 +8,7 @@
 import Foundation
 
 struct Product: Decodable, Hashable {
+    let id: Int
     let category: String
     let name: String
     let price: Double
