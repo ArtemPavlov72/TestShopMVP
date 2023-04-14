@@ -69,6 +69,18 @@ class DataManager {
         })
         
         group.enter()
+        createLatestProducts(completion: { product in
+            dataProducts.append(contentsOf: product.latest)
+            group.leave()
+        })
+        
+        group.enter()
+        createLatestProducts(completion: { product in
+            dataProducts.append(contentsOf: product.latest)
+            group.leave()
+        })
+        
+        group.enter()
         createSaleProducts(completion: { product in
             dataProducts.append(contentsOf: product.flash_sale)
             group.leave()

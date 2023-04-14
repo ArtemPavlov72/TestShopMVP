@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MainViewControllerDelegate {
-    func didSelectCategory(_ index: Int)
+    func didSelectCategory(_ name: String)
 }
 
 class MainViewController: UIViewController {
@@ -16,12 +16,6 @@ class MainViewController: UIViewController {
     //MARK: - Private Properties
     private var banners: [Banner] = []
     private var products: [Product] = []
-    private var filteredProducts: [Product] = []
-    
-    private var phones: [Product] = []
-    private var games: [Product] = []
-    private var cars: [Product] = []
-    private var kids: [Product] = []
     
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     private var collectionView: UICollectionView!
@@ -31,7 +25,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupCollectionView()
         getProducts {
-            self.getData()
+            self.createData()
             self.createDataSource()
         }
     }
@@ -44,27 +38,9 @@ class MainViewController: UIViewController {
         })
     }
         
-    private func getData() {
+    private func createData() {
         banners = DataManager.shared.createBanners()
-  
-        phones = products.filter({ product in
-            product.category == "Phones"
-        })
-        games = products.filter({ product in
-            product.category == "Games"
-        })
-        cars = products.filter({ product in
-            product.category == "Cars"
-        })
-        kids = products.filter({ product in
-            product.category == "Kids"
-        })
-        
-        filteredProducts.append(contentsOf: phones)
-        filteredProducts.append(contentsOf: games)
-        filteredProducts.append(contentsOf: cars)
-        filteredProducts.append(contentsOf: kids)
-        
+        products.sort(by: { $0.category < $1.category })
     }
     
     private func setupCollectionView() {
@@ -91,7 +67,6 @@ class MainViewController: UIViewController {
             collectionView, indexPath, data in
             
             let sections = Section.allCases[indexPath.section]
-            
             switch sections {
             case .banner:
                 return configure(BannerCell.self, with: data, for: indexPath)
@@ -102,27 +77,23 @@ class MainViewController: UIViewController {
         
         dataSource?.supplementaryViewProvider = { collectionView, kind, indexPath in
             guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Header.reuseId, for: indexPath) as? Header else { return Header() }
-            
-            sectionHeader.categories = Array(NSOrderedSet(array: self.filteredProducts.compactMap({ $0.category } ))) as? [String] ?? []
-
+            sectionHeader.categories = Array(NSOrderedSet(array: self.products.compactMap {
+                $0.category
+            } )) as? [String] ?? []
             sectionHeader.delegate = self
-            
             return sectionHeader
         }
-        
         dataSource?.apply(generateSnapshot(), animatingDifferences: true)
     }
-    
-    
     
     private func generateSnapshot() -> NSDiffableDataSourceSnapshot<Section, AnyHashable>  {
         var snapshot = NSDiffableDataSourceSnapshot<Section, AnyHashable>()
         
         snapshot.appendSections([Section.banner])
         snapshot.appendItems(banners, toSection: .banner)
-        
+
         snapshot.appendSections([Section.productInfo])
-        snapshot.appendItems(filteredProducts, toSection: .productInfo)
+        snapshot.appendItems(products, toSection: .productInfo)
 
         return snapshot
     }
@@ -143,7 +114,6 @@ class MainViewController: UIViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 16
         layout.configuration = config
-
         return layout
     }
     
@@ -193,24 +163,14 @@ extension MainViewController {
 }
 
 //MARK: - MainViewControllerDelegate
-
 extension MainViewController: MainViewControllerDelegate {
-  func didSelectCategory(_ index: Int) {
-      var correctIndex = 0
-      
-      switch index {
-      case 0:
-          correctIndex = 0
-      case 1:
-          correctIndex = phones.count
-      case 2:
-          correctIndex = phones.count + games.count
-      default:
-          correctIndex = phones.count + games.count + cars.count
-      }
-      
-      let indexPath = IndexPath(item: correctIndex, section: 1)
-    collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
-  }
+    func didSelectCategory(_ name: String) {
+        
+        let indexOfFirstElementOfCategory = products.firstIndex(where: { $0.category == name } )
+        guard let index = indexOfFirstElementOfCategory else {return}
+        
+        let indexPath = IndexPath(item: index, section: 1)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .top)
+    }
 }
 

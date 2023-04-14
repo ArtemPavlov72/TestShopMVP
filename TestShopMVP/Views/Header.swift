@@ -48,8 +48,7 @@ class Header: UICollectionReusableView {
     }
     
     private func createSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                              heightDimension: .fractionalHeight(1))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0)
         
@@ -59,7 +58,6 @@ class Header: UICollectionReusableView {
         let layoutSection = NSCollectionLayoutSection(group: group)
         layoutSection.orthogonalScrollingBehavior = .continuous
         layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 0)
-        
         return layoutSection
     }
 }
@@ -79,7 +77,6 @@ extension Header: UICollectionViewDataSource {
 
 extension Header: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      delegate?.didSelectCategory(indexPath.item)
+      delegate?.didSelectCategory(categories[indexPath.item])
      }
 }
-
