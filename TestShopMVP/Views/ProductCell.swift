@@ -13,14 +13,34 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
     static let reuseId: String = "product"
     
     //MARK: - Private Properties
-    private let productName = UILabel()
-    private let productDescription = UILabel()
+    private let productName: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    private let productDescription: UILabel = {
+        let label = UILabel()
+        label.textColor = .systemGray
+        return label
+    }()
+    
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .right
+        label.textColor = .systemRed
         return label
     }()
-    private let productImage = UIImageView()
+    
+    private let productImage: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.layer.cornerRadius = 20
+        image.layer.borderWidth = 1
+        image.layer.borderColor = UIColor.systemGray4.cgColor
+        return image
+    }()
     
     private let bottomView: UIView = {
         let view = UIView()
@@ -39,7 +59,7 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
         return stackView
     }()
     
-    private lazy var stackView: UIStackView = {
+    private lazy var horizontalStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = NSLayoutConstraint.Axis.horizontal
         stackView.alignment = .fill
@@ -49,11 +69,21 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
         return stackView
     }()
     
+    private lazy var mainStackView: UIStackView = {
+        let stackView1 = UIStackView()
+        stackView1.axis = NSLayoutConstraint.Axis.vertical
+        stackView1.alignment = .fill
+        stackView1.spacing = 20
+        stackView1.addArrangedSubview(horizontalStackView)
+        stackView1.addArrangedSubview(bottomView)
+        return stackView1
+    }()
+    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupElements(stackView, bottomView)
-        setupSubViews(stackView, bottomView)
+        setupElements(mainStackView)
+        setupSubViews(mainStackView)
         setupConstraints()
     }
     
@@ -66,7 +96,7 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
             guard let productData = data as? Product else { return }
             productName.text = productData.name
             productDescription.text = productData.category
-            priceLabel.text = String(describing: productData.price)
+            priceLabel.text = String(describing: productData.price) + " $"
             fetchImage(from: productData.image)
         }
     
@@ -84,19 +114,18 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
     
     // MARK: - Setup Constraints
     private func setupConstraints() {
-        productImage.heightAnchor.constraint(equalToConstant: self.bounds.width * 0.3).isActive = true
-        productImage.widthAnchor.constraint(equalToConstant: self.bounds.width * 0.3).isActive = true
+        productImage.widthAnchor.constraint(equalToConstant: self.bounds.width * 0.4).isActive = true
         
         verticalStackView.widthAnchor.constraint(equalToConstant: self.bounds.width * 0.6).isActive = true
-        verticalStackView.heightAnchor.constraint(equalToConstant: self.bounds.width * 0.3).isActive = true
+        verticalStackView.heightAnchor.constraint(equalToConstant: self.bounds.width * 0.30).isActive = true
         
         priceLabel.trailingAnchor.constraint(equalTo: self.verticalStackView.trailingAnchor).isActive = true
         
-        stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        mainStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        mainStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
         
-        bottomView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 8).isActive = true
         bottomView.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        bottomView.widthAnchor.constraint(equalToConstant: self.bounds.width).isActive = true
     }
 }

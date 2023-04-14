@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(collectionView)
-        
+        collectionView.backgroundColor = .systemGray6
         collectionView.register(Header.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Header.reuseId)
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseId)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: ProductCell.reuseId)
@@ -110,6 +110,8 @@ class MainViewController: UIViewController {
                 return self.createProductSection()
             }
         }
+        
+        layout.register(RoundedBackgroundView.self, forDecorationViewOfKind: RoundedBackgroundView.reuseId)
                 
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 16
@@ -136,20 +138,25 @@ class MainViewController: UIViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                               heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
+        item.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 0, bottom: 16, trailing: 0)
+       
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                heightDimension: .absolute(160))
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         
         let layoutSection = NSCollectionLayoutSection(group: group)
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 4, bottom: 0, trailing: 8)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0)
         
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50))
         
         let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
      
-        header.pinToVisibleBounds = true //
+        header.pinToVisibleBounds = true
         layoutSection.boundarySupplementaryItems = [header]
+        
+        layoutSection.decorationItems = [
+            NSCollectionLayoutDecorationItem.background(elementKind: RoundedBackgroundView.reuseId)
+        ]
         
         return layoutSection
     }

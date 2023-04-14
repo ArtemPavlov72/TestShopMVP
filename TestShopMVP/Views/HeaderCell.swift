@@ -18,7 +18,7 @@ class HeaderCell: UICollectionViewCell {
     //MARK: - Cell Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .yellow
+       // self.backgroundColor = .systemGray5
         setupElements(categoryLabel)
         setupSubViews(categoryLabel)
         setupConstraints()

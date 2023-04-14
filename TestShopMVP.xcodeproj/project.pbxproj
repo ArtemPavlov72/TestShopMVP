@@ -21,6 +21,7 @@
 		AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12D29DC3073007E0B12 /* ProductCell.swift */; };
 		AC30A13029DD73B9007E0B12 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12F29DD73B9007E0B12 /* Header.swift */; };
 		AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13129DEDC45007E0B12 /* HeaderCell.swift */; };
+		AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		AC30A12D29DC3073007E0B12 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		AC30A12F29DD73B9007E0B12 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		AC30A13129DEDC45007E0B12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				AC30A13129DEDC45007E0B12 /* HeaderCell.swift */,
 				AC30A12D29DC3073007E0B12 /* ProductCell.swift */,
 				AC30A12629DC2B99007E0B12 /* SelfConfiguringCell.swift */,
+				AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */,
 				AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */,
 				AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */,
+				AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */,
 				AC30A13029DD73B9007E0B12 /* Header.swift in Sources */,
 				AC30A10B29DBFE3C007E0B12 /* MainViewController.swift in Sources */,
 				AC30A10729DBFE3C007E0B12 /* AppDelegate.swift in Sources */,
