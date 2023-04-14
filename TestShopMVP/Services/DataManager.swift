@@ -18,12 +18,10 @@ class DataManager {
     
     func createBanners() -> [Banner] {
         var banners: [Banner] = []
-        
         let _ = getFakeBannersData().map { banner in
             let newBanner = Banner(bannerName: banner)
             banners.append(newBanner)
         }
-        
         return banners
     }
     
@@ -56,41 +54,18 @@ class DataManager {
         var id: Int = 0
         let group = DispatchGroup()
         
-        group.enter()
-        createLatestProducts(completion: { product in
-            dataProducts.append(contentsOf: product.latest)
-            group.leave()
-        })
-        
-        group.enter()
-        createLatestProducts(completion: { product in
-            dataProducts.append(contentsOf: product.latest)
-            group.leave()
-        })
-        
-        group.enter()
-        createLatestProducts(completion: { product in
-            dataProducts.append(contentsOf: product.latest)
-            group.leave()
-        })
-        
-        group.enter()
-        createLatestProducts(completion: { product in
-            dataProducts.append(contentsOf: product.latest)
-            group.leave()
-        })
-        
-        group.enter()
-        createSaleProducts(completion: { product in
-            dataProducts.append(contentsOf: product.flash_sale)
-            group.leave()
-        })
-        
-        group.enter()
-        createSaleProducts(completion: { product in
-            dataProducts.append(contentsOf: product.flash_sale)
-            group.leave()
-        })
+        for _ in 1...5 {
+            group.enter()
+            createLatestProducts(completion: { product in
+                dataProducts.append(contentsOf: product.latest)
+                group.leave()
+            })
+            group.enter()
+            createSaleProducts(completion: { product in
+                dataProducts.append(contentsOf: product.flash_sale)
+                group.leave()
+            })
+        }
         
         group.notify(queue: .main) {
             _ = dataProducts.map { product in
