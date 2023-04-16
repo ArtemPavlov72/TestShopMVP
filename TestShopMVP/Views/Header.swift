@@ -12,6 +12,7 @@ class Header: UICollectionReusableView {
     static let reuseId: String = "headerSectionId"
     
     var categories: [String] = []
+    private var selectedCategory: Int = 0
     var delegate: MainViewControllerDelegate?
     
     private var collectionView: UICollectionView!
@@ -50,14 +51,14 @@ class Header: UICollectionReusableView {
     private func createSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 8, trailing: 0)
+        item.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 8, trailing: 8)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4), heightDimension: .fractionalHeight(1))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let layoutSection = NSCollectionLayoutSection(group: group)
         layoutSection.orthogonalScrollingBehavior = .continuous
-        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        layoutSection.contentInsets = NSDirectionalEdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8)
         return layoutSection
     }
 }
@@ -71,6 +72,12 @@ extension Header: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.reuseId, for: indexPath) as! HeaderCell
         cell.configureCell(with: categories[indexPath.item])
+        
+        if selectedCategory == indexPath.item {
+            cell.configureSelectedAppearance()
+        } else {
+            cell.configureStandartAppearance()
+        }
         return cell
     }
 }
@@ -78,5 +85,7 @@ extension Header: UICollectionViewDataSource {
 extension Header: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       delegate?.didSelectCategory(categories[indexPath.item])
+      selectedCategory = indexPath.item
+      collectionView.reloadData()
      }
 }

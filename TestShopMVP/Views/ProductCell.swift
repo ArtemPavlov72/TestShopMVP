@@ -34,7 +34,7 @@ class ProductCell: UICollectionViewCell, SelfConfiguringCell {
     
     private let productImage: UIImageView = {
         let image = UIImageView()
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
         image.layer.cornerRadius = 20
         image.layer.borderWidth = 1
