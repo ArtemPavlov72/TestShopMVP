@@ -22,6 +22,10 @@
 		AC30A13029DD73B9007E0B12 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12F29DD73B9007E0B12 /* Header.swift */; };
 		AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13129DEDC45007E0B12 /* HeaderCell.swift */; };
 		AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */; };
+		AC5D403529EBE32200A974DB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403429EBE32200A974DB /* TabBarViewController.swift */; };
+		AC5D403729EBE34800A974DB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403629EBE34800A974DB /* UserViewController.swift */; };
+		AC5D403929EBE36100A974DB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403829EBE36100A974DB /* ContactsViewController.swift */; };
+		AC5D403B29EBE38E00A974DB /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403A29EBE38E00A974DB /* BasketViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		AC30A12F29DD73B9007E0B12 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		AC30A13129DEDC45007E0B12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
+		AC5D403429EBE32200A974DB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		AC5D403629EBE34800A974DB /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		AC5D403829EBE36100A974DB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		AC5D403A29EBE38E00A974DB /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +108,11 @@
 		AC30A11D29DC220B007E0B12 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AC5D403429EBE32200A974DB /* TabBarViewController.swift */,
 				AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */,
+				AC5D403629EBE34800A974DB /* UserViewController.swift */,
+				AC5D403829EBE36100A974DB /* ContactsViewController.swift */,
+				AC5D403A29EBE38E00A974DB /* BasketViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -204,10 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC5D403B29EBE38E00A974DB /* BasketViewController.swift in Sources */,
 				AC30A12729DC2B99007E0B12 /* SelfConfiguringCell.swift in Sources */,
+				AC5D403729EBE34800A974DB /* UserViewController.swift in Sources */,
 				AC30A11B29DC213E007E0B12 /* NetworkManager.swift in Sources */,
 				AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */,
 				AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */,
+				AC5D403929EBE36100A974DB /* ContactsViewController.swift in Sources */,
+				AC5D403529EBE32200A974DB /* TabBarViewController.swift in Sources */,
 				AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */,
 				AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */,
 				AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */,
