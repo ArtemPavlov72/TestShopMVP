@@ -17,7 +17,7 @@ class TabBarViewController: UITabBarController {
     
     //MARK: - Private Methods
     private func setupTabBar() {
-        let mainVC = MainViewController()
+        let mainVC = UINavigationController(rootViewController: MainViewController())
         let contactsVC = ContactsViewController()
         let userVC = UserViewController()
         let basketVC = BasketViewController()

@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
         setupCollectionView()
         getProducts {
             self.createData()
@@ -37,10 +38,25 @@ class MainViewController: UIViewController {
             completion()
         })
     }
-        
+    
     private func createData() {
         banners = DataManager.shared.createBanners()
         products.sort(by: { $0.category < $1.category })
+    }
+    
+    private func setupNavigationBar() {
+        createCustomLeftButtonItem()
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    private func createCustomLeftButtonItem() {
+        let button = UIButton(type: .system)
+        button.setTitle("Москва", for: .normal)
+        button.tintColor = UIColor.black
+        button.setImage(UIImage(named: "drop"), for: .normal)
+        button.semanticContentAttribute = .forceRightToLeft
+        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }
     
     private func setupCollectionView() {
