@@ -2,18 +2,37 @@
 //  HeaderCell.swift
 //  TestShopMVP
 //
-//  Created by Артем Павлов on 06.04.2023.
+//  Created by Artem Pavlov on 06.04.2023.
 //
 
 import UIKit
 
-class HeaderCell: UICollectionViewCell {
+protocol HeaderCellViewModelRepresentable {
+    var viewModel: HeaderCellViewModelProtocol? { get }
+}
+
+class HeaderViewCell: UICollectionViewCell, HeaderCellViewModelRepresentable {
+    var viewModel: HeaderCellViewModelProtocol? {
+        didSet {
+            updateHeaderView()
+        }
+    }
+    
+    //MARK: - Public Properties
+    private let categoryLabel = UILabel()
+    
+    
+    private func updateHeaderView() {
+        //сначала извлекает опциональное значение из вьюмодел
+        guard let viewModel = viewModel as? HeaderCellViewModel else { return }
+      
+        categoryLabel.text = viewModel.categoryName
+    }
     
     //MARK: - Static Properties
     static let reuseId: String = "header"
     
-    //MARK: - Public Properties
-    private let categoryLabel = UILabel()
+  
     
     //MARK: - Cell Init
     override init(frame: CGRect) {
@@ -32,25 +51,19 @@ class HeaderCell: UICollectionViewCell {
     }
     
     //MARK: - Public Methods
-    func configureCell(with category: String) {
-        categoryLabel.text = category
-    }
-    
     func configureSelectedAppearance() {
         layer.backgroundColor = UIColor.systemRed.withAlphaComponent(0.2).cgColor
-          layer.borderWidth = 0
-         // layer.cornerRadius = 20
+        layer.borderWidth = 0
         categoryLabel.textColor = UIColor.systemRed
         categoryLabel.font = UIFont.boldSystemFont(ofSize: 16)
-      }
-
+    }
+    
     func configureStandartAppearance() {
-      layer.backgroundColor = .none
-      layer.borderColor = UIColor.systemRed.cgColor
-      layer.borderWidth = 1
-      categoryLabel.textColor = UIColor(named: "FD3A69")
-      categoryLabel.font = UIFont.systemFont(ofSize: 16)
-
+        layer.backgroundColor = .none
+        layer.borderColor = UIColor.systemRed.cgColor
+        layer.borderWidth = 1
+        categoryLabel.textColor = UIColor(named: "FD3A69")
+        categoryLabel.font = UIFont.systemFont(ofSize: 16)
     }
     
     
@@ -58,6 +71,5 @@ class HeaderCell: UICollectionViewCell {
     private func setupConstraints() {
         categoryLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         categoryLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
     }
 }

@@ -11,6 +11,8 @@ class Header: UICollectionReusableView {
     
     static let reuseId: String = "headerSectionId"
     
+    var viewModel: HeaderCellViewModelProtocol?
+    
     var categories: [String] = []
     private var selectedCategory: Int = 0
     var delegate: MainViewControllerDelegate?
@@ -19,6 +21,7 @@ class Header: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupCollectionView()
     }
     
@@ -33,7 +36,7 @@ class Header: UICollectionReusableView {
         collectionView.backgroundColor = .systemGray6
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(HeaderCell.self, forCellWithReuseIdentifier: HeaderCell.reuseId)
+        collectionView.register(HeaderViewCell.self, forCellWithReuseIdentifier: HeaderViewCell.reuseId)
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -70,8 +73,11 @@ extension Header: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderCell.reuseId, for: indexPath) as! HeaderCell
-        cell.configureCell(with: categories[indexPath.item])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderViewCell.reuseId, for: indexPath) as! HeaderViewCell
+        
+        viewModel = HeaderCellViewModel(category: categories[indexPath.item])
+        
+        cell.viewModel = viewModel
         
         if selectedCategory == indexPath.item {
             cell.configureSelectedAppearance()

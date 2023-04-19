@@ -19,13 +19,18 @@
 		AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */; };
 		AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12B29DC2C0A007E0B12 /* ImageManager.swift */; };
 		AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12D29DC3073007E0B12 /* ProductCell.swift */; };
-		AC30A13029DD73B9007E0B12 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12F29DD73B9007E0B12 /* Header.swift */; };
-		AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13129DEDC45007E0B12 /* HeaderCell.swift */; };
+		AC30A13029DD73B9007E0B12 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A12F29DD73B9007E0B12 /* HeaderView.swift */; };
+		AC30A13229DEDC45007E0B12 /* HeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13129DEDC45007E0B12 /* HeaderViewCell.swift */; };
 		AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */; };
 		AC5D403529EBE32200A974DB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403429EBE32200A974DB /* TabBarViewController.swift */; };
 		AC5D403729EBE34800A974DB /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403629EBE34800A974DB /* UserViewController.swift */; };
 		AC5D403929EBE36100A974DB /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403829EBE36100A974DB /* ContactsViewController.swift */; };
 		AC5D403B29EBE38E00A974DB /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D403A29EBE38E00A974DB /* BasketViewController.swift */; };
+		AC5D404229EE6E1A00A974DB /* HeaderCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404129EE6E1A00A974DB /* HeaderCellViewModel.swift */; };
+		AC5D404429EFDAA300A974DB /* HeaderViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404329EFDAA300A974DB /* HeaderViewPresenter.swift */; };
+		AC5D404629EFDABA00A974DB /* HeaderViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404529EFDABA00A974DB /* HeaderViewInteractor.swift */; };
+		AC5D404829EFDADB00A974DB /* HeaderViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */; };
+		AC5D404A29EFDB0000A974DB /* HeaderViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404929EFDB0000A974DB /* HeaderViewRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +48,18 @@
 		AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
 		AC30A12B29DC2C0A007E0B12 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		AC30A12D29DC3073007E0B12 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
-		AC30A12F29DD73B9007E0B12 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		AC30A13129DEDC45007E0B12 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		AC30A12F29DD73B9007E0B12 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		AC30A13129DEDC45007E0B12 /* HeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewCell.swift; sourceTree = "<group>"; };
 		AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBackgroundView.swift; sourceTree = "<group>"; };
 		AC5D403429EBE32200A974DB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		AC5D403629EBE34800A974DB /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		AC5D403829EBE36100A974DB /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		AC5D403A29EBE38E00A974DB /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		AC5D404129EE6E1A00A974DB /* HeaderCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellViewModel.swift; sourceTree = "<group>"; };
+		AC5D404329EFDAA300A974DB /* HeaderViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewPresenter.swift; sourceTree = "<group>"; };
+		AC5D404529EFDABA00A974DB /* HeaderViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewInteractor.swift; sourceTree = "<group>"; };
+		AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConfigurator.swift; sourceTree = "<group>"; };
+		AC5D404929EFDB0000A974DB /* HeaderViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,14 +93,14 @@
 			isa = PBXGroup;
 			children = (
 				AC30A12029DC270C007E0B12 /* Models */,
-				AC30A10629DBFE3C007E0B12 /* AppDelegate.swift */,
+				AC5D403F29EE6D0A00A974DB /* Header */,
 				AC30A12529DC2B64007E0B12 /* Views */,
 				AC30A11D29DC220B007E0B12 /* ViewControllers */,
 				AC30A12A29DC2BC1007E0B12 /* Extensions */,
 				AC30A11C29DC2201007E0B12 /* Services */,
-				AC30A10F29DBFE3E007E0B12 /* Assets.xcassets */,
-				AC30A11129DBFE3E007E0B12 /* LaunchScreen.storyboard */,
-				AC30A11429DBFE3E007E0B12 /* Info.plist */,
+				AC5D403E29EDB62500A974DB /* Resources */,
+				AC5D403D29EDB61800A974DB /* Storyboard */,
+				AC5D403C29EDB60900A974DB /* App */,
 			);
 			path = TestShopMVP;
 			sourceTree = "<group>";
@@ -128,9 +138,7 @@
 		AC30A12529DC2B64007E0B12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AC30A12F29DD73B9007E0B12 /* Header.swift */,
 				AC30A12329DC2B5D007E0B12 /* BannerCell.swift */,
-				AC30A13129DEDC45007E0B12 /* HeaderCell.swift */,
 				AC30A12D29DC3073007E0B12 /* ProductCell.swift */,
 				AC30A12629DC2B99007E0B12 /* SelfConfiguringCell.swift */,
 				AC30A13329E93E79007E0B12 /* RoundedBackgroundView.swift */,
@@ -144,6 +152,53 @@
 				AC30A12829DC2BBB007E0B12 /* UICollectionViewCell.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AC5D403C29EDB60900A974DB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A10629DBFE3C007E0B12 /* AppDelegate.swift */,
+				AC30A11429DBFE3E007E0B12 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AC5D403D29EDB61800A974DB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A11129DBFE3E007E0B12 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		AC5D403E29EDB62500A974DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A10F29DBFE3E007E0B12 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AC5D403F29EE6D0A00A974DB /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A12F29DD73B9007E0B12 /* HeaderView.swift */,
+				AC5D404329EFDAA300A974DB /* HeaderViewPresenter.swift */,
+				AC5D404529EFDABA00A974DB /* HeaderViewInteractor.swift */,
+				AC5D404929EFDB0000A974DB /* HeaderViewRouter.swift */,
+				AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */,
+				AC5D404029EE6DA900A974DB /* HeaderCell */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		AC5D404029EE6DA900A974DB /* HeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A13129DEDC45007E0B12 /* HeaderViewCell.swift */,
+				AC5D404129EE6E1A00A974DB /* HeaderCellViewModel.swift */,
+			);
+			path = HeaderCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,21 +273,26 @@
 			files = (
 				AC5D403B29EBE38E00A974DB /* BasketViewController.swift in Sources */,
 				AC30A12729DC2B99007E0B12 /* SelfConfiguringCell.swift in Sources */,
+				AC5D404829EFDADB00A974DB /* HeaderViewConfigurator.swift in Sources */,
 				AC5D403729EBE34800A974DB /* UserViewController.swift in Sources */,
 				AC30A11B29DC213E007E0B12 /* NetworkManager.swift in Sources */,
 				AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */,
 				AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */,
 				AC5D403929EBE36100A974DB /* ContactsViewController.swift in Sources */,
 				AC5D403529EBE32200A974DB /* TabBarViewController.swift in Sources */,
-				AC30A13229DEDC45007E0B12 /* HeaderCell.swift in Sources */,
+				AC5D404629EFDABA00A974DB /* HeaderViewInteractor.swift in Sources */,
+				AC30A13229DEDC45007E0B12 /* HeaderViewCell.swift in Sources */,
 				AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */,
 				AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */,
-				AC30A13029DD73B9007E0B12 /* Header.swift in Sources */,
+				AC30A13029DD73B9007E0B12 /* HeaderView.swift in Sources */,
 				AC30A10B29DBFE3C007E0B12 /* MainViewController.swift in Sources */,
 				AC30A10729DBFE3C007E0B12 /* AppDelegate.swift in Sources */,
 				AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */,
 				AC30A11F29DC2704007E0B12 /* Shop.swift in Sources */,
 				AC30A12429DC2B5D007E0B12 /* BannerCell.swift in Sources */,
+				AC5D404229EE6E1A00A974DB /* HeaderCellViewModel.swift in Sources */,
+				AC5D404A29EFDB0000A974DB /* HeaderViewRouter.swift in Sources */,
+				AC5D404429EFDAA300A974DB /* HeaderViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +433,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQ7NB58NL6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestShopMVP/Info.plist;
+				INFOPLIST_FILE = TestShopMVP/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -400,7 +460,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQ7NB58NL6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TestShopMVP/Info.plist;
+				INFOPLIST_FILE = TestShopMVP/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
