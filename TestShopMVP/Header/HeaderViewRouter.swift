@@ -2,7 +2,21 @@
 //  HeaderViewRouter.swift
 //  TestShopMVP
 //
-//  Created by Артем Павлов on 19.04.2023.
+//  Created by Artem Pavlov on 19.04.2023.
 //
 
 import Foundation
+
+protocol HeaderViewRouterInputProtocol {
+    init(viewController: HeaderView)
+}
+
+class HeaderViewRouter: HeaderViewRouterInputProtocol {
+    unowned let viewController: HeaderView
+    
+    required init(viewController: HeaderView) {
+        self.viewController = viewController
+    }
+    
+    
+}

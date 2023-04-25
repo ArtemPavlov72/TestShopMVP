@@ -1,5 +1,5 @@
 //
-//  HeaderCell.swift
+//  HeaderViewCell.swift
 //  TestShopMVP
 //
 //  Created by Artem Pavlov on 06.04.2023.
@@ -12,27 +12,19 @@ protocol HeaderCellViewModelRepresentable {
 }
 
 class HeaderViewCell: UICollectionViewCell, HeaderCellViewModelRepresentable {
+    
+    //MARK: - Static Properties
+   // static let reuseId: String = "header"
+    
+    //MARK: - Public Properties
     var viewModel: HeaderCellViewModelProtocol? {
         didSet {
             updateHeaderView()
         }
     }
     
-    //MARK: - Public Properties
+    //MARK: - Private Properties
     private let categoryLabel = UILabel()
-    
-    
-    private func updateHeaderView() {
-        //сначала извлекает опциональное значение из вьюмодел
-        guard let viewModel = viewModel as? HeaderCellViewModel else { return }
-      
-        categoryLabel.text = viewModel.categoryName
-    }
-    
-    //MARK: - Static Properties
-    static let reuseId: String = "header"
-    
-  
     
     //MARK: - Cell Init
     override init(frame: CGRect) {
@@ -40,10 +32,7 @@ class HeaderViewCell: UICollectionViewCell, HeaderCellViewModelRepresentable {
         setupElements(categoryLabel)
         setupSubViews(categoryLabel)
         setupConstraints()
-        
-        layer.borderColor = UIColor.systemRed.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 20
+        setupViewLayer()
     }
     
     required init?(coder: NSCoder) {
@@ -60,12 +49,20 @@ class HeaderViewCell: UICollectionViewCell, HeaderCellViewModelRepresentable {
     
     func configureStandartAppearance() {
         layer.backgroundColor = .none
-        layer.borderColor = UIColor.systemRed.cgColor
         layer.borderWidth = 1
-        categoryLabel.textColor = UIColor(named: "FD3A69")
+        categoryLabel.textColor = UIColor.black
         categoryLabel.font = UIFont.systemFont(ofSize: 16)
     }
     
+    //MARK: - Private Methods
+    private func updateHeaderView() {
+        categoryLabel.text = viewModel?.categoryName
+    }
+    
+    private func setupViewLayer() {
+        layer.borderColor = UIColor.systemRed.cgColor
+        layer.cornerRadius = 20
+    }
     
     // MARK: - Setup Constraints
     private func setupConstraints() {

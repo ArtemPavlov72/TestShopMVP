@@ -8,9 +8,9 @@
 import Foundation
 
 protocol HeaderCellViewModelProtocol {
-    var cellIdentifier: String { get } //индификатор ячейки
+    var cellIdentifier: String { get }
     var categoryName: String { get }
-    init(category: String) //чтобы мы могли сюда передать какие-то значения, нам нужен объект данных course с типом Course
+    init(category: String)
 }
 
 class HeaderCellViewModel: HeaderCellViewModelProtocol {

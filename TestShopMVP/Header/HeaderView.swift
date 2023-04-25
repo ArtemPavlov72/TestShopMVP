@@ -1,18 +1,38 @@
 //
-//  Header.swift
+//  HeaderView.swift
 //  TestShopMVP
 //
-//  Created by Артем Павлов on 05.04.2023.
+//  Created by Artem Pavlov on 05.04.2023.
 //
 
 import UIKit
 
-class Header: UICollectionReusableView {
+protocol HeaderViewInputProtocol: AnyObject {
+    func reloadData(for items: [HeaderCellViewModel]) //перезапускаем методы UITableViewDataSource
+}
+
+protocol HeaderViewOutputProtocol: AnyObject {
+    init(view: HeaderViewInputProtocol)
+    func viewDidLoad()
+   // func didTapCell(at indexPath: IndexPath) //пользователь тапнул по ячейке
+}
+
+
+
+class HeaderView: UICollectionReusableView {
     
     static let reuseId: String = "headerSectionId"
     
-    var viewModel: HeaderCellViewModelProtocol?
+  //  var viewModel: HeaderCellViewModelProtocol?
     
+    //
+    var presenter: HeaderViewOutputProtocol!
+    
+    private var headerCellViewModel: [HeaderCellViewModelProtocol] = []
+    
+    private let configurator: HeaderViewConfiguratorInputProtocol = HeaderViewConfigurator()
+    
+    //
     var categories: [String] = []
     private var selectedCategory: Int = 0
     var delegate: MainViewControllerDelegate?
@@ -21,7 +41,8 @@ class Header: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        configurator.configure(with: self) //
+        presenter.viewDidLoad() //
         setupCollectionView()
     }
     
@@ -36,7 +57,7 @@ class Header: UICollectionReusableView {
         collectionView.backgroundColor = .systemGray6
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(HeaderViewCell.self, forCellWithReuseIdentifier: HeaderViewCell.reuseId)
+        //collectionView.register(HeaderViewCell.self, forCellWithReuseIdentifier: headerCellViewModel.)
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -67,31 +88,48 @@ class Header: UICollectionReusableView {
 }
 
 // MARK: - UICollectionViewDataSource
-extension Header: UICollectionViewDataSource {
+extension HeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
+      //  categories.count
+        headerCellViewModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HeaderViewCell.reuseId, for: indexPath) as! HeaderViewCell
         
-        viewModel = HeaderCellViewModel(category: categories[indexPath.item])
+        let cellViewModel = headerCellViewModel[indexPath.item]
+        collectionView.register(HeaderViewCell.self, forCellWithReuseIdentifier: cellViewModel.cellIdentifier)
         
-        cell.viewModel = viewModel
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewModel.cellIdentifier, for: indexPath) as! HeaderViewCell
+        cell.viewModel = cellViewModel
         
-        if selectedCategory == indexPath.item {
-            cell.configureSelectedAppearance()
-        } else {
-            cell.configureStandartAppearance()
-        }
+        
+ //       viewModel = HeaderCellViewModel(category: categories[indexPath.item])
+        
+     //   cell.viewModel = viewModel
+        
+//        if selectedCategory == indexPath.item {
+//            cell.configureSelectedAppearance()
+//        } else {
+//            cell.configureStandartAppearance()
+//        }
         return cell
     }
 }
 
-extension Header: UICollectionViewDelegate {
+// MARK: - UICollectionViewDelegate
+extension HeaderView: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
       delegate?.didSelectCategory(categories[indexPath.item])
       selectedCategory = indexPath.item
       collectionView.reloadData()
      }
+}
+
+extension HeaderView: HeaderViewInputProtocol {
+    func reloadData(for items: [HeaderCellViewModel]) {
+        headerCellViewModel = items
+        collectionView.reloadData()
+    }
+    
+    
 }
