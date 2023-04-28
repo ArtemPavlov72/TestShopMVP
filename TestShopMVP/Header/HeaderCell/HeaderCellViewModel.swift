@@ -23,8 +23,4 @@ class HeaderCellViewModel: HeaderCellViewModelProtocol {
     required init(category: String) {
         self.categoryName = category
     }
-    
-    
 }
-
-

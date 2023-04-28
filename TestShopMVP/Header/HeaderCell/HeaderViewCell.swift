@@ -12,10 +12,7 @@ protocol HeaderCellViewModelRepresentable {
 }
 
 class HeaderViewCell: UICollectionViewCell, HeaderCellViewModelRepresentable {
-    
-    //MARK: - Static Properties
-   // static let reuseId: String = "header"
-    
+        
     //MARK: - Public Properties
     var viewModel: HeaderCellViewModelProtocol? {
         didSet {

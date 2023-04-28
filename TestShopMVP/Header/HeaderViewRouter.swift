@@ -5,8 +5,6 @@
 //  Created by Artem Pavlov on 19.04.2023.
 //
 
-import Foundation
-
 protocol HeaderViewRouterInputProtocol {
     init(viewController: HeaderView)
 }
@@ -17,6 +15,4 @@ class HeaderViewRouter: HeaderViewRouterInputProtocol {
     required init(viewController: HeaderView) {
         self.viewController = viewController
     }
-    
-    
 }

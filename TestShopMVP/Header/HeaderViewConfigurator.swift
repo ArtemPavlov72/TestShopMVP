@@ -5,8 +5,6 @@
 //  Created by Artem Pavlov on 19.04.2023.
 //
 
-import Foundation
-
 protocol HeaderViewConfiguratorInputProtocol {
     func configure(with viewController: HeaderView)
 }
@@ -22,3 +20,5 @@ class HeaderViewConfigurator: HeaderViewConfiguratorInputProtocol {
         presenter.router = router
     }
 }
+
+

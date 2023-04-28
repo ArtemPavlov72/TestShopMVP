@@ -8,31 +8,24 @@
 import UIKit
 
 protocol HeaderViewInputProtocol: AnyObject {
-    func reloadData(for items: [HeaderCellViewModel]) //перезапускаем методы UITableViewDataSource
+    func reloadData(for items: [HeaderCellViewModel])
 }
 
 protocol HeaderViewOutputProtocol: AnyObject {
     init(view: HeaderViewInputProtocol)
     func viewDidLoad()
-   // func didTapCell(at indexPath: IndexPath) //пользователь тапнул по ячейке
+   // func didTapCell(at indexPath: IndexPath)
 }
-
-
 
 class HeaderView: UICollectionReusableView {
     
     static let reuseId: String = "headerSectionId"
-    
-  //  var viewModel: HeaderCellViewModelProtocol?
-    
-    //
+        
     var presenter: HeaderViewOutputProtocol!
-    
     private var headerCellViewModel: [HeaderCellViewModelProtocol] = []
-    
     private let configurator: HeaderViewConfiguratorInputProtocol = HeaderViewConfigurator()
     
-    //
+    
     var categories: [String] = []
     private var selectedCategory: Int = 0
     var delegate: MainViewControllerDelegate?
@@ -41,8 +34,8 @@ class HeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configurator.configure(with: self) //
-        presenter.viewDidLoad() //
+        configurator.configure(with: self)
+        presenter.viewDidLoad()
         setupCollectionView()
     }
     
@@ -90,7 +83,6 @@ class HeaderView: UICollectionReusableView {
 // MARK: - UICollectionViewDataSource
 extension HeaderView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      //  categories.count
         headerCellViewModel.count
     }
     
@@ -101,11 +93,6 @@ extension HeaderView: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellViewModel.cellIdentifier, for: indexPath) as! HeaderViewCell
         cell.viewModel = cellViewModel
-        
-        
- //       viewModel = HeaderCellViewModel(category: categories[indexPath.item])
-        
-     //   cell.viewModel = viewModel
         
 //        if selectedCategory == indexPath.item {
 //            cell.configureSelectedAppearance()
@@ -125,11 +112,10 @@ extension HeaderView: UICollectionViewDelegate {
      }
 }
 
+// MARK: - HeaderViewInputProtocol
 extension HeaderView: HeaderViewInputProtocol {
     func reloadData(for items: [HeaderCellViewModel]) {
         headerCellViewModel = items
         collectionView.reloadData()
     }
-    
-    
 }
