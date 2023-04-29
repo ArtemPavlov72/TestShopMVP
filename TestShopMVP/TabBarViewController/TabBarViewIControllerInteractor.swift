@@ -5,8 +5,6 @@
 //  Created by Artem Pavlov on 26.04.2023.
 //
 
-import Foundation
-
 protocol TabBarViewControllerInteractorInputProtocol {
     func getTabBarItems()
     init(presenter: TabBarViewControllerInteractorOutputProtocol)

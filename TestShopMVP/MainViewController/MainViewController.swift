@@ -2,10 +2,18 @@
 //  ViewController.swift
 //  TestShopMVP
 //
-//  Created by Артем Павлов on 04.04.2023.
+//  Created by Artem Pavlov on 04.04.2023.
 //
 
 import UIKit
+
+protocol MainViewControllerInputProtocol: AnyObject {
+    
+}
+
+protocol MainViewControllerOutputProtocol: AnyObject {
+    init(view: MainViewControllerInputProtocol)
+}
 
 protocol MainViewControllerDelegate {
     func didSelectCategory(_ name: String)
@@ -20,9 +28,19 @@ class MainViewController: UIViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>?
     private var collectionView: UICollectionView!
     
+    //
+    var presenter: MainViewControllerOutputProtocol!
+    private let configurator: MainViewControllerConfiguratorInputProtocol = MainViewConfigurator()
+    //
+    
     //MARK: - Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //
+        configurator.configure(with: self)
+        
+        //
         setupNavigationBar()
         setupCollectionView()
         getProducts {
@@ -197,3 +215,6 @@ extension MainViewController: MainViewControllerDelegate {
     }
 }
 
+extension MainViewController: MainViewControllerInputProtocol {
+    
+}

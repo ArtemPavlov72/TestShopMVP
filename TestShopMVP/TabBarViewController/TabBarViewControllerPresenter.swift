@@ -5,8 +5,6 @@
 //  Created by Artem Pavlov on 26.04.2023.
 //
 
-import Foundation
-
 struct TabBarItemsDataStore {
     let items: [TabBarItem]
 }

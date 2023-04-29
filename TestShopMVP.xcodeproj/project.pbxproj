@@ -31,10 +31,14 @@
 		AC5D404629EFDABA00A974DB /* HeaderViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404529EFDABA00A974DB /* HeaderViewInteractor.swift */; };
 		AC5D404829EFDADB00A974DB /* HeaderViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */; };
 		AC5D404A29EFDB0000A974DB /* HeaderViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404929EFDB0000A974DB /* HeaderViewRouter.swift */; };
-		AC5D404F29F86BB900A974DB /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404E29F86BB900A974DB /* TabBarViewPresenter.swift */; };
-		AC5D405129F86BCA00A974DB /* TabBarViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405029F86BCA00A974DB /* TabBarViewInteractor.swift */; };
-		AC5D405529F86BED00A974DB /* TabBarViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405429F86BED00A974DB /* TabBarViewConfigurator.swift */; };
-		AC5D405729FA45FC00A974DB /* TabBarViewEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405629FA45FC00A974DB /* TabBarViewEntity.swift */; };
+		AC5D404F29F86BB900A974DB /* TabBarViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D404E29F86BB900A974DB /* TabBarViewControllerPresenter.swift */; };
+		AC5D405129F86BCA00A974DB /* TabBarViewIControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405029F86BCA00A974DB /* TabBarViewIControllerInteractor.swift */; };
+		AC5D405529F86BED00A974DB /* TabBarViewControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405429F86BED00A974DB /* TabBarViewControllerConfigurator.swift */; };
+		AC5D405729FA45FC00A974DB /* TabBarViewControllerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405629FA45FC00A974DB /* TabBarViewControllerEntity.swift */; };
+		AC5D405A29FD7A9600A974DB /* MainViewControllerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405929FD7A9600A974DB /* MainViewControllerPresenter.swift */; };
+		AC5D405C29FD7AFE00A974DB /* MainViewControllerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405B29FD7AFE00A974DB /* MainViewControllerInteractor.swift */; };
+		AC5D405E29FD7B1600A974DB /* MainViewControllerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405D29FD7B1600A974DB /* MainViewControllerRouter.swift */; };
+		AC5D406029FD7B2400A974DB /* MainViewControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC5D405F29FD7B2400A974DB /* MainViewControllerConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,10 +68,14 @@
 		AC5D404529EFDABA00A974DB /* HeaderViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewInteractor.swift; sourceTree = "<group>"; };
 		AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewConfigurator.swift; sourceTree = "<group>"; };
 		AC5D404929EFDB0000A974DB /* HeaderViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewRouter.swift; sourceTree = "<group>"; };
-		AC5D404E29F86BB900A974DB /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
-		AC5D405029F86BCA00A974DB /* TabBarViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewInteractor.swift; sourceTree = "<group>"; };
-		AC5D405429F86BED00A974DB /* TabBarViewConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewConfigurator.swift; sourceTree = "<group>"; };
-		AC5D405629FA45FC00A974DB /* TabBarViewEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewEntity.swift; sourceTree = "<group>"; };
+		AC5D404E29F86BB900A974DB /* TabBarViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerPresenter.swift; sourceTree = "<group>"; };
+		AC5D405029F86BCA00A974DB /* TabBarViewIControllerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewIControllerInteractor.swift; sourceTree = "<group>"; };
+		AC5D405429F86BED00A974DB /* TabBarViewControllerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerConfigurator.swift; sourceTree = "<group>"; };
+		AC5D405629FA45FC00A974DB /* TabBarViewControllerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewControllerEntity.swift; sourceTree = "<group>"; };
+		AC5D405929FD7A9600A974DB /* MainViewControllerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerPresenter.swift; sourceTree = "<group>"; };
+		AC5D405B29FD7AFE00A974DB /* MainViewControllerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerInteractor.swift; sourceTree = "<group>"; };
+		AC5D405D29FD7B1600A974DB /* MainViewControllerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerRouter.swift; sourceTree = "<group>"; };
+		AC5D405F29FD7B2400A974DB /* MainViewControllerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +110,10 @@
 			children = (
 				AC30A12029DC270C007E0B12 /* Models */,
 				AC5D404D29F86B9B00A974DB /* TabBarViewController */,
+				AC5D405829FD7A6700A974DB /* MainViewController */,
 				AC30A11D29DC220B007E0B12 /* ViewControllers */,
 				AC30A12529DC2B64007E0B12 /* Views */,
-				AC5D403F29EE6D0A00A974DB /* Header */,
+				AC5D403F29EE6D0A00A974DB /* Header View */,
 				AC30A12A29DC2BC1007E0B12 /* Extensions */,
 				AC30A11C29DC2201007E0B12 /* Services */,
 				AC5D403E29EDB62500A974DB /* Resources */,
@@ -127,7 +136,6 @@
 		AC30A11D29DC220B007E0B12 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */,
 				AC5D403629EBE34800A974DB /* UserViewController.swift */,
 				AC5D403829EBE36100A974DB /* ContactsViewController.swift */,
 				AC5D403A29EBE38E00A974DB /* BasketViewController.swift */,
@@ -187,7 +195,7 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		AC5D403F29EE6D0A00A974DB /* Header */ = {
+		AC5D403F29EE6D0A00A974DB /* Header View */ = {
 			isa = PBXGroup;
 			children = (
 				AC30A12F29DD73B9007E0B12 /* HeaderView.swift */,
@@ -197,7 +205,7 @@
 				AC5D404729EFDADB00A974DB /* HeaderViewConfigurator.swift */,
 				AC5D404029EE6DA900A974DB /* HeaderCell */,
 			);
-			path = Header;
+			path = "Header View";
 			sourceTree = "<group>";
 		};
 		AC5D404029EE6DA900A974DB /* HeaderCell */ = {
@@ -213,12 +221,24 @@
 			isa = PBXGroup;
 			children = (
 				AC5D403429EBE32200A974DB /* TabBarViewController.swift */,
-				AC5D404E29F86BB900A974DB /* TabBarViewPresenter.swift */,
-				AC5D405029F86BCA00A974DB /* TabBarViewInteractor.swift */,
-				AC5D405629FA45FC00A974DB /* TabBarViewEntity.swift */,
-				AC5D405429F86BED00A974DB /* TabBarViewConfigurator.swift */,
+				AC5D404E29F86BB900A974DB /* TabBarViewControllerPresenter.swift */,
+				AC5D405029F86BCA00A974DB /* TabBarViewIControllerInteractor.swift */,
+				AC5D405629FA45FC00A974DB /* TabBarViewControllerEntity.swift */,
+				AC5D405429F86BED00A974DB /* TabBarViewControllerConfigurator.swift */,
 			);
 			path = TabBarViewController;
+			sourceTree = "<group>";
+		};
+		AC5D405829FD7A6700A974DB /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AC30A10A29DBFE3C007E0B12 /* MainViewController.swift */,
+				AC5D405929FD7A9600A974DB /* MainViewControllerPresenter.swift */,
+				AC5D405B29FD7AFE00A974DB /* MainViewControllerInteractor.swift */,
+				AC5D405D29FD7B1600A974DB /* MainViewControllerRouter.swift */,
+				AC5D405F29FD7B2400A974DB /* MainViewControllerConfigurator.swift */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,12 +313,13 @@
 			files = (
 				AC5D403B29EBE38E00A974DB /* BasketViewController.swift in Sources */,
 				AC30A12729DC2B99007E0B12 /* SelfConfiguringCell.swift in Sources */,
+				AC5D405A29FD7A9600A974DB /* MainViewControllerPresenter.swift in Sources */,
 				AC5D404829EFDADB00A974DB /* HeaderViewConfigurator.swift in Sources */,
 				AC5D403729EBE34800A974DB /* UserViewController.swift in Sources */,
 				AC30A11B29DC213E007E0B12 /* NetworkManager.swift in Sources */,
 				AC30A12929DC2BBB007E0B12 /* UICollectionViewCell.swift in Sources */,
 				AC30A12C29DC2C0A007E0B12 /* ImageManager.swift in Sources */,
-				AC5D405129F86BCA00A974DB /* TabBarViewInteractor.swift in Sources */,
+				AC5D405129F86BCA00A974DB /* TabBarViewIControllerInteractor.swift in Sources */,
 				AC5D403929EBE36100A974DB /* ContactsViewController.swift in Sources */,
 				AC5D403529EBE32200A974DB /* TabBarViewController.swift in Sources */,
 				AC5D404629EFDABA00A974DB /* HeaderViewInteractor.swift in Sources */,
@@ -306,13 +327,16 @@
 				AC30A12229DC2A18007E0B12 /* DataManager.swift in Sources */,
 				AC30A13429E93E79007E0B12 /* RoundedBackgroundView.swift in Sources */,
 				AC30A13029DD73B9007E0B12 /* HeaderView.swift in Sources */,
+				AC5D406029FD7B2400A974DB /* MainViewControllerConfigurator.swift in Sources */,
+				AC5D405C29FD7AFE00A974DB /* MainViewControllerInteractor.swift in Sources */,
 				AC30A10B29DBFE3C007E0B12 /* MainViewController.swift in Sources */,
-				AC5D405729FA45FC00A974DB /* TabBarViewEntity.swift in Sources */,
+				AC5D405729FA45FC00A974DB /* TabBarViewControllerEntity.swift in Sources */,
 				AC30A10729DBFE3C007E0B12 /* AppDelegate.swift in Sources */,
+				AC5D405E29FD7B1600A974DB /* MainViewControllerRouter.swift in Sources */,
 				AC30A12E29DC3073007E0B12 /* ProductCell.swift in Sources */,
-				AC5D405529F86BED00A974DB /* TabBarViewConfigurator.swift in Sources */,
+				AC5D405529F86BED00A974DB /* TabBarViewControllerConfigurator.swift in Sources */,
 				AC30A11F29DC2704007E0B12 /* Shop.swift in Sources */,
-				AC5D404F29F86BB900A974DB /* TabBarViewPresenter.swift in Sources */,
+				AC5D404F29F86BB900A974DB /* TabBarViewControllerPresenter.swift in Sources */,
 				AC30A12429DC2B5D007E0B12 /* BannerCell.swift in Sources */,
 				AC5D404229EE6E1A00A974DB /* HeaderCellViewModel.swift in Sources */,
 				AC5D404A29EFDB0000A974DB /* HeaderViewRouter.swift in Sources */,
