@@ -29,7 +29,7 @@ class HeaderViewPresenter: HeaderViewOutputProtocol {
 
 extension HeaderViewPresenter: HeaderViewInteractorOutputProtocol {
     func categoriesDidReceive(with dataStore: CategoriesListDataStore) {
-        self.dataSource = dataStore
+        //self.dataSource = dataStore
         var categories: [HeaderCellViewModel] = []
         dataStore.categories.forEach { categories.append(HeaderCellViewModel(category: $0))
             view.reloadData(for: categories)

@@ -2,7 +2,7 @@
 //  UICollectionViewCell.swift
 //  TestShopMVP
 //
-//  Created by Артем Павлов on 04.04.2023.
+//  Created by Artem Pavlov on 04.04.2023.
 //
 
 import UIKit
@@ -18,4 +18,3 @@ extension UICollectionViewCell {
         }
     }
 }
-

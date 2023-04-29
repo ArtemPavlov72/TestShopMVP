@@ -15,8 +15,6 @@ class TabBarViewControllerPresenter: TabBarViewControllerOutputProtocol {
     unowned let view: TabBarViewControllerInputProtocol
     var interactor: TabBarViewControllerInteractorInputProtocol!
     
-    private var dataSource: TabBarItemsDataStore?
-    
     required init(view: TabBarViewControllerInputProtocol) {
         self.view = view
     }
@@ -28,7 +26,6 @@ class TabBarViewControllerPresenter: TabBarViewControllerOutputProtocol {
 
 extension TabBarViewControllerPresenter: TabBarViewControllerInteractorOutputProtocol {
     func tabBarItemsDidReceive(with dataStore: TabBarItemsDataStore) {
-        self.dataSource = dataStore
         view.setViewControllers(for: dataStore.items)
     }
 }
